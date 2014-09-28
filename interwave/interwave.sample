@@ -1,0 +1,32 @@
+# On the standard GUS PnP, the SIMMs are
+# banks 0 and 1.
+# On the GUS PnP Pro, banks 0 and 1 each
+# have a 256K chip soldered, and the SIMMs
+# are banks 2 and 3. A Pro without any added
+# RAM should therefore have ram_config 1.
+# ram_config| Bank 3 | Bank 2 | Bank 1 | Bank 0 | Total
+#      0    |   -    |   -    |   -    |  256K  | 256K
+#      1    |   -    |   -    |  256K  |  256K  | 512K
+#      2    |  256K  |  256K  |  256K  |  256K  |  1M
+#      3    |   -    |   -    |   1M   |  256K  | 1.25M
+#      4    |   1M   |   1M   |   1M   |  256K  | 3.25M
+#      5    |   -    |   1M   |  256K  |  256K  | 1.5M
+#      6    |   1M   |   1M   |  256K  |  256K  | 2.5M
+#      7    |   -    |   -    |   -    |   1M   |  1M
+#      8    |   -    |   -    |   1M   |   1M   |  2M
+#      9    |   1M   |   1M   |   1M   |   1M   |  4M
+#     10    |   -    |   -    |   -    |   4M   |  4M
+#     11    |   -    |   -    |   4M   |   4M   |  8M
+#     12    |   4M   |   4M   |   4M   |   4M   | 16M
+
+ram_config 8
+
+# Every GUS PnP has rom_config 1.
+# rom_config| ROM size
+#      0    | 512K
+#      1    | 1M
+#      2    | 2M
+#      3    | 4M
+#      4    | 8M
+
+rom_config 1

@@ -1,0 +1,28 @@
+This is a BeOS driver for AMD InterWave-based sound cards (the Gravis Ultrasound PnP (inc. PnP Pro) is one, and probably the only one that the driver really works with. Any other Gravis sound card is pretty different and will definitely NOT work).
+It requires BeOS Genki for Intel.
+
+Installation
+If you are not reading this from the installer already, double-click the .pkg file and install the package with SofwareValet.
+
+There is one thing you may have to do for proper operation and that is important :
+- Open the Devices preferences application, look under 'ISA/Plug and Play Devices'.
+- You should see several lines that look like 'UltraSound Plug & Play (xxx)', with xxx being one of the several devices present on the card (the exact text may vary slightly). If you don't, either you don't have a GUS PnP installed or you have a BeOS problem. Sorry.
+- Double-click each one of the 'CD-ROM' (unless you are using the IDE connector on the GUS, which is unlikely), 'SB Compatible' and 'MPU-401' lines and select 'Disable Device' in the Resources box. You should only leave the 'Synth/Codec' and 'Game Port' devices enabled. 
+- You may have to reboot for these changes to take effect.
+
+The reason you have to do this is that otherwise these useless devices will be configured by BeOS and use valuable IRQs - the lack of IRQs may even prevent the useful device ('Synth/Codec') from being enabled (you would see 'disabled by system') !
+
+Features
+Digital audio playback and recording, through the BeOS Media Kit.
+MIDI is not supported yet.
+Audio recording is quite flaky at the moment - please tell me if it works or not.
+The current driver will make no attempt to use the wavetable capabilities of your sound card.
+
+Good luck !
+
+Please report your success (or lack thereof) with the driver to me : jperret@cybercable.fr
+
+Finally, if you want to be kept updated on future versions of this driver just send an e-mail to beos-interwave-request@list.to with the word SUBSCRIBE in the text of your message.
+
+Thanks for reading,
+Jonathan Perret
